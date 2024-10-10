@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.database.entities.Estudante;
 import com.example.demo.database.repositories.EstudanteRepository;
-import org.junit.Test;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

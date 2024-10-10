@@ -1,12 +1,10 @@
 package com.example.demo.database.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Entity
@@ -21,12 +19,6 @@ public class Estudante {
     private List<Turma> turma;
 
     public Estudante() {}
-
-    public Estudante(String nome, String matricula) {
-        this.nome = nome;
-        this.matricula = matricula;
-    }
-
     public Estudante(Long id, String nome, String matricula, List<Turma> turma) {
         this.id = id;
         this.nome = nome;
@@ -64,5 +56,18 @@ public class Estudante {
 
     public void setTurma(List<Turma> turma) {
         this.turma = turma;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Estudante estudante = (Estudante) o;
+        return Objects.equals(getId(), estudante.getId()) && Objects.equals(getNome(), estudante.getNome()) && Objects.equals(getMatricula(), estudante.getMatricula()) && Objects.equals(getTurma(), estudante.getTurma());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNome(), getMatricula(), getTurma());
     }
 }
