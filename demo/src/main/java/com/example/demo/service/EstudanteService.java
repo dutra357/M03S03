@@ -2,16 +2,19 @@ package com.example.demo.service;
 
 import com.example.demo.database.entities.Estudante;
 import com.example.demo.database.repositories.EstudanteRepository;
-import lombok.RequiredArgsConstructor;
+import org.junit.Test;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
 public class EstudanteService {
 
     final EstudanteRepository estudanteRepository;
+
+    public EstudanteService(EstudanteRepository estudanteRepository) {
+        this.estudanteRepository = estudanteRepository;
+    }
 
     public Estudante cadastrarEstudante(String nome, String matricula) {
         Estudante estudante = new Estudante();

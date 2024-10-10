@@ -10,10 +10,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/estudantes")
-@RequiredArgsConstructor
 public class EstudanteController {
 
     private final EstudanteService estudanteService;
+
+    public EstudanteController(EstudanteService estudanteService) {
+        this.estudanteService = estudanteService;
+    }
 
     @GetMapping
     public List<Estudante> listarEstudantes() {
